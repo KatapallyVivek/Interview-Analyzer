@@ -28,14 +28,14 @@ function SpeechControls({ setText, setStartTime, onStop }) {
     recognition.start();
     recognitionRef.current = recognition;
 
-    setStartTime(Date.now()); // start timer
+    setStartTime(Date.now()); 
   };
 
   const stopListening = () => {
     if (recognitionRef.current) {
       recognitionRef.current.stop();
     }
-    onStop(); // trigger analysis
+    onStop(); 
   };
 
   return (
