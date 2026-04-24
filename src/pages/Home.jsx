@@ -16,7 +16,7 @@ function Home() {
     setResult(res);
   };
 
-  const feedback = getFeedback(result.score);
+  const feedback = result ? getFeedback(result.score) : null;
   return (
     <Container>
     <h1 style={{ textAlign: "center" }}>
@@ -42,9 +42,12 @@ function Home() {
         <p>WPM: {result.wpm}</p>
         <p>Fillers: {result.fillerCount}</p>
 
-        <p style={{ color: feedback.color }}>
+        {feedback && (
+          <p style={{ color: feedback.color}}>
             {feedback.message}
-        </p>
+          </p>
+        )}
+       
         </Card>
     )}
     </Container>
